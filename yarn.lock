@@ -1293,6 +1293,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"blobity@npm:^0.1.7":
+  version: 0.1.7
+  resolution: "blobity@npm:0.1.7"
+  dependencies:
+    kinet: ^2.2.1
+    lodash: ^4.17.21
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 729588a2d2b0b24b3ef5e2ee232af0f3147df16ed78e06cd6de76f8000400674600d601f5b5e3161eb231677891e24d6c9074f74fa52e149ed384b79318771cc
+  languageName: node
+  linkType: hard
+
 "bn.js@npm:^4.0.0, bn.js@npm:^4.1.0, bn.js@npm:^4.11.9":
   version: 4.12.0
   resolution: "bn.js@npm:4.12.0"
@@ -1892,6 +1904,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: ea3c723e345f8548be29bf1acab0056867fb8c24b7286cfb2035b4afd2bdbad48c02fdc079c8725b0c60305aa9d6a17f90fec1ebf7444130b4282860482a5a72
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "deepmerge@npm:4.2.2"
+  checksum: 85abf8e0045ee280996e7d2396979c877ef0741e413b716e42441110e0a83ac08098b2a49cea035510060bf667c0eae3189b2a52349f5fa4b000c211041637b1
   languageName: node
   linkType: hard
 
@@ -2751,6 +2770,8 @@ fsevents@~2.3.1:
     "@xstyled/emotion": ^3.1.1
     "@xstyled/system": ^3.1.1
     "@xstyled/util": ^3.1.0
+    blobity: ^0.1.7
+    deepmerge: ^4.2.2
     eslint: ^7.32.0
     eslint-config-next: 12.0.2
     next: 12.0.2
@@ -2759,6 +2780,7 @@ fsevents@~2.3.1:
     preact-render-to-string: ^5.1.19
     react: "npm:@preact/compat@17.0.3"
     react-dom: "npm:@preact/compat@17.0.3"
+    rough-notation: ^0.5.1
     typescript: 4.4.4
     webpack: ^5.61.0
   languageName: unknown
@@ -3359,6 +3381,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"kinet@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "kinet@npm:2.2.1"
+  checksum: 0fa6a86e5116075e3726ff92a2820047dcf9c857dcc84b353aaafa29bfe551382a7556b8d4b8098a4bd1f345498113ead7be677c0502fdd6d60bc7737b3c3dbf
+  languageName: node
+  linkType: hard
+
 "language-subtag-registry@npm:~0.3.2":
   version: 0.3.21
   resolution: "language-subtag-registry@npm:0.3.21"
@@ -3454,6 +3483,13 @@ fsevents@~2.3.1:
   version: 4.4.2
   resolution: "lodash.truncate@npm:4.4.2"
   checksum: b1b0d7d993bb73d0032fe909d4523a836b6aa91566fa88ff78c3eac008bd3d3b2ba0f2e8381d7f906b1d6913a64982f34bea95dd556355c0d418bfddf3ab7b06
+  languageName: node
+  linkType: hard
+
+"lodash@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash@npm:4.17.21"
+  checksum: 4983720b9abca930a4a46f18db163d7dad8dd00dbed6db0cc7b499b33b717cce69f80928b27bbb1ff2cbd3b19d251ee90669a8b5ea466072ca81c2ebe91e7468
   languageName: node
   linkType: hard
 
@@ -4614,6 +4650,13 @@ resolve@^2.0.0-next.3:
     hash-base: ^3.0.0
     inherits: ^2.0.1
   checksum: e0370fbe779b1f15d74c3e7dffc0ce40b57b845fc7e431fab8a571958d5fd9c91eb0038a252604600e20786d117badea0cc4cf8816b8a6be6b9166b565ad6797
+  languageName: node
+  linkType: hard
+
+"rough-notation@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "rough-notation@npm:0.5.1"
+  checksum: 0593569cea20fdb209dc0655cc80890cdb2e08f4d80f7b5a9ca740774ec3387baa80fa76ffebc9092fbd3d47829ba595eed5574da4dc4606867f60110a9e4ea8
   languageName: node
   linkType: hard
 

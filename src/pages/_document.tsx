@@ -1,22 +1,20 @@
 import { getColorModeInitScriptElement } from '@xstyled/core';
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document';
+import { x } from '@xstyled/emotion';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
-        <body>
+        <Head>
+          <meta name="description" content="Hanzzok: Write Documents Better" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <x.body backgroundColor="bg">
           {getColorModeInitScriptElement()}
           <Main />
           <NextScript />
-        </body>
+        </x.body>
       </Html>
     );
   }
