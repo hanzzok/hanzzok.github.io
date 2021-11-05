@@ -8,7 +8,7 @@ import {
 import {
   ColorScheme,
   usePreferredColorScheme,
-} from '../lib/hooks/use-preferred-color-mode';
+} from '../lib/hooks/use-preferred-color-scheme';
 import { DarkTheme, LightTheme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {

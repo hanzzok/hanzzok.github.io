@@ -43,7 +43,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.6"],
             ["@types/react", "npm:17.0.34"],
             ["blobity", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:0.1.7"],
-            ["deepmerge", "npm:4.2.2"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.2"],
             ["next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.2"],
@@ -2194,15 +2193,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["deepmerge", [
-        ["npm:4.2.2", {
-          "packageLocation": "./.yarn/cache/deepmerge-npm-4.2.2-112165ced2-85abf8e004.zip/node_modules/deepmerge/",
-          "packageDependencies": [
-            ["deepmerge", "npm:4.2.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["define-properties", [
         ["npm:1.1.3", {
           "packageLocation": "./.yarn/cache/define-properties-npm-1.1.3-0f3115e2b9-b69c48c1b1.zip/node_modules/define-properties/",
@@ -3195,7 +3185,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:16.11.6"],
             ["@types/react", "npm:17.0.34"],
             ["blobity", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:0.1.7"],
-            ["deepmerge", "npm:4.2.2"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.2"],
             ["next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.2"],
