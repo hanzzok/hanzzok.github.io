@@ -1,13 +1,13 @@
-import { createGlobalStyle } from '@xstyled/emotion';
+import { globalCss } from '../stitches.config';
 
-export const RoughAnnotationStyles = createGlobalStyle`
-  .rough-annotation {
-    z-index: -1;
-  }
-`;
+export const applyRoughAnnotationStyles = globalCss({
+  '.rough-annotation': {
+    zIndex: -1,
+  },
+});
 
-export const GlobalStyles = createGlobalStyle`
-  body {
-    background-color: bg;
-  }
-`;
+export const applyGlobalStyles = globalCss({
+  body: {
+    backgroundColor: '$bg',
+  },
+});

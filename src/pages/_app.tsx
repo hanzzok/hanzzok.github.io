@@ -1,10 +1,15 @@
 import type { AppProps } from 'next/app';
-import { ColorModeProvider, Preflight, ThemeProvider } from '@xstyled/emotion';
-import { MyTheme } from '../styles/theme';
-import dynamic from 'next/dynamic';
 import { useEffect } from 'react';
 import Blobity from 'blobity';
-import { GlobalStyles, RoughAnnotationStyles } from '../styles/global';
+import {
+  applyGlobalStyles,
+  applyRoughAnnotationStyles,
+} from '../styles/global';
+import {
+  ColorScheme,
+  usePreferredColorScheme,
+} from '../lib/hooks/use-preferred-color-mode';
+import { DarkTheme, LightTheme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -13,16 +18,25 @@ function MyApp({ Component, pageProps }: AppProps) {
     });
   }, []);
 
-  return (
-    <ThemeProvider theme={MyTheme}>
-      <ColorModeProvider>
-        <Preflight />
-        <RoughAnnotationStyles />
-        <GlobalStyles />
-        <Component {...pageProps} />
-      </ColorModeProvider>
-    </ThemeProvider>
-  );
+  const scheme = usePreferredColorScheme();
+
+  useEffect(() => {
+    switch (scheme) {
+      case ColorScheme.Dark: {
+        document.body.className = DarkTheme;
+        break;
+      }
+      case ColorScheme.Light: {
+        document.body.className = LightTheme;
+        break;
+      }
+    }
+  }, [scheme]);
+
+  applyRoughAnnotationStyles();
+  applyGlobalStyles();
+
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

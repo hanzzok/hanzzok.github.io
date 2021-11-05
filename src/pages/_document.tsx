@@ -1,6 +1,5 @@
-import { getColorModeInitScriptElement } from '@xstyled/core';
-import { x } from '@xstyled/emotion';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { getCssText } from '../stitches.config';
 
 class MyDocument extends Document {
   render() {
@@ -9,12 +8,15 @@ class MyDocument extends Document {
         <Head>
           <meta name="description" content="Hanzzok: Write Documents Better" />
           <link rel="icon" href="/favicon.ico" />
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
         </Head>
-        <x.body backgroundColor="bg">
-          {getColorModeInitScriptElement()}
+        <body>
           <Main />
           <NextScript />
-        </x.body>
+        </body>
       </Html>
     );
   }

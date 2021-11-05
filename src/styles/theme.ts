@@ -1,24 +1,21 @@
-import { defaultTheme, th } from '@xstyled/system';
-import deepmerge from 'deepmerge';
+import { createTheme } from '../stitches.config';
 
-export const MyTheme = deepmerge(defaultTheme, {
+export const LightTheme = createTheme('light-theme', {
   colors: {
-    bg: th.color('gray-100'),
+    bg: '$gray-100',
+    fg: '$gray-900',
+    fgLight: '$gray-500',
 
-    fg: th.color('gray-900'),
-    fgLight: th.color('gray-400'),
-
-    highlight: th.color('amber-600-a50'),
-
-    modes: {
-      dark: {
-        bg: th.color('gray-800'),
-
-        fg: th.color('gray-300'),
-        fgLight: th.color('gray-500'),
-      },
-    },
+    highlight: '$orange-600-a50',
   },
 });
 
-export type MyTheme = typeof MyTheme;
+export const DarkTheme = createTheme('dark-theme', {
+  colors: {
+    bg: '$gray-800',
+    fg: '$gray-300',
+    fgLight: '$gray-500',
+
+    highlight: '$orange-600-a50',
+  },
+});

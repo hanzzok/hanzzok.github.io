@@ -1,11 +1,29 @@
-import { th, useTheme, x } from '@xstyled/emotion';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { annotate } from 'rough-notation';
+import { styled, theme } from '../stitches.config';
+
+const Catchphrase = styled('h1', {
+  fontSize: '4rem',
+  userSelect: 'none',
+  color: '$fg',
+  fontWeight: '400',
+});
+
+const HighlightWrap = styled('span', {
+  fontSize: '2rem',
+  color: '$fgLight',
+  fontWeight: '100',
+});
+
+const HighlightTarget = styled('span', {
+  fontSize: '4rem',
+  color: '$fg',
+  fontWeight: '700',
+});
 
 const Home: NextPage = () => {
-  const theme = useTheme() as any;
   const betterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -13,11 +31,11 @@ const Home: NextPage = () => {
       const annotationList = [
         annotate(betterRef.current, {
           type: 'highlight',
-          color: theme.colors['amber-200-a30'],
+          color: theme.colors['orange-200-a30'].computedValue,
         }),
         annotate(betterRef.current, {
           type: 'underline',
-          color: theme.colors['red-700'],
+          color: theme.colors['red-700'].computedValue,
         }),
       ];
 
@@ -31,7 +49,7 @@ const Home: NextPage = () => {
         }
       };
     }
-  }, [theme.colors]);
+  }, []);
 
   return (
     <div>
@@ -40,16 +58,13 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <x.h1 fontSize="6xl" userSelect="none" color="fg">
+        <Catchphrase>
           Write Documents{' '}
-          <x.span fontSize="3xl" color="fgLight">
-            [
-            <x.span fontSize="6xl" color="fg" ref={betterRef}>
-              Better
-            </x.span>{' '}
+          <HighlightWrap>
+            [<HighlightTarget ref={betterRef}>Better</HighlightTarget>{' '}
             .highlight .underline]
-          </x.span>
-        </x.h1>
+          </HighlightWrap>
+        </Catchphrase>
       </main>
     </div>
   );
