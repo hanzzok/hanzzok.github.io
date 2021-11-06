@@ -8,6 +8,11 @@ class MyDocument extends Document {
         <Head>
           <meta name="description" content="Hanzzok: Write Documents Better" />
           <link rel="icon" href="/favicon.ico" />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css"
+          />
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}

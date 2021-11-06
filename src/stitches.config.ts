@@ -56,5 +56,8 @@ export const {
 
       fg: '$gray-900',
     },
+    fonts: {
+      sansSerif: '"Pretendard Variable", sans-serif',
+    },
   },
 });

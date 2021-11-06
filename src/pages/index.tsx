@@ -2,6 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { annotate } from 'rough-notation';
+import { useBlobity } from '../lib/hooks/use-blobity';
+import { useTooltip } from '../lib/hooks/use-tooltip';
 import { styled, theme } from '../stitches.config';
 
 const Catchphrase = styled('h1', {
@@ -15,11 +17,10 @@ const HighlightWrap = styled('span', {
   fontSize: '2rem',
   color: '$fgLight',
   fontWeight: '100',
+  verticalAlign: 'middle',
 });
 
 const HighlightTarget = styled('span', {
-  fontSize: '4rem',
-  color: '$fg',
   fontWeight: '700',
 });
 
@@ -51,6 +52,10 @@ const Home: NextPage = () => {
     }
   }, []);
 
+  const highlightTooltip = useTooltip(
+    'with .highlight and .underline decorator'
+  );
+
   return (
     <div>
       <Head>
@@ -59,12 +64,13 @@ const Home: NextPage = () => {
 
       <main>
         <Catchphrase>
-          Write Documents{' '}
-          <HighlightWrap>
-            [<HighlightTarget ref={betterRef}>Better</HighlightTarget>{' '}
-            .highlight .underline]
-          </HighlightWrap>
+          Write Documents <HighlightWrap>[</HighlightWrap>
+          <HighlightTarget ref={betterRef} {...highlightTooltip}>
+            Better
+          </HighlightTarget>
+          <HighlightWrap> .highlight .underline]</HighlightWrap>
         </Catchphrase>
+        <p></p>
       </main>
     </div>
   );
