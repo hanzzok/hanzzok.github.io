@@ -12,5 +12,7 @@ export const applyGlobalStyles = globalCss({
 
     backgroundColor: '$bg',
     color: '$fg',
+
+    margin: 0,
   },
 });
