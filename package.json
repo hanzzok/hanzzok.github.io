@@ -10,10 +10,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@monaco-editor/react": "^4.3.1",
     "@preact/compat": "^17.0.3",
     "@stitches/react": "^1.2.5",
     "blobity": "^0.1.7",
-    "next": "12.0.2",
+    "libhanzzok": "^0.1.3",
+    "monaco-editor": "^0.30.1",
+    "next": "12.0.3",
     "open-color": "^1.9.1",
     "preact": "^10.5.15",
     "react": "npm:@preact/compat@17.0.3",
@@ -21,20 +24,22 @@
     "rough-notation": "^0.5.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^12.0.3",
     "@prefresh/babel-plugin": "^0.4.1",
-    "@types/node": "16.11.6",
+    "@types/node": "16.11.7",
     "@types/react": "17.0.34",
     "eslint": "^7.32.0",
-    "eslint-config-next": "12.0.2",
+    "eslint-config-next": "12.0.3",
     "next-plugin-preact": "^3.0.6",
     "preact-render-to-string": "^5.1.19",
     "typescript": "4.4.4",
-    "webpack": "^5.61.0"
+    "webpack": "^5.64.0"
   },
   "browsers": [
     "> 1%",
     "not ie <= 11",
     "not edge <= 18",
     "not dead"
-  ]
+  ],
+  "packageManager": "yarn@3.2.0-rc.3"
 }

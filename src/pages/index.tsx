@@ -5,23 +5,32 @@ import { annotate } from 'rough-notation';
 import { useBlobity } from '../lib/hooks/use-blobity';
 import { useTooltip } from '../lib/hooks/use-tooltip';
 import { styled, theme } from '../stitches.config';
+import Link from 'next/link';
 
 const Catchphrase = styled('h1', {
   fontSize: '4rem',
   userSelect: 'none',
-  color: '$fg',
   fontWeight: '400',
 });
 
 const HighlightWrap = styled('span', {
   fontSize: '2rem',
   color: '$fgLight',
-  fontWeight: '100',
+  fontWeight: '200',
   verticalAlign: 'middle',
 });
 
 const HighlightTarget = styled('span', {
   fontWeight: '700',
+});
+
+const TryOutButton = styled('button', {
+  border: 'none',
+  borderRadius: '8px',
+  fontSize: '2rem',
+  color: '$fg',
+  background: '$primary',
+  padding: '1rem 2rem',
 });
 
 const Home: NextPage = () => {
@@ -68,9 +77,13 @@ const Home: NextPage = () => {
           <HighlightTarget ref={betterRef} {...highlightTooltip}>
             Better
           </HighlightTarget>
-          <HighlightWrap> .highlight .underline]</HighlightWrap>
+          <HighlightWrap>&nbsp;.highlight&nbsp;.underline]</HighlightWrap>
         </Catchphrase>
-        <p></p>
+        <Link href="/playground">
+          <a>
+            <TryOutButton>Try Out</TryOutButton>
+          </a>
+        </Link>
       </main>
     </div>
   );

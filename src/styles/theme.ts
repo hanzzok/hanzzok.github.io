@@ -7,6 +7,8 @@ export const LightTheme = createTheme('light-theme', {
     fgLight: '$gray-500',
 
     highlight: '$orange-600-a50',
+
+    primary: '$blue-900',
   },
 });
 
@@ -17,5 +19,7 @@ export const DarkTheme = createTheme('dark-theme', {
     fgLight: '$gray-500',
 
     highlight: '$orange-600-a50',
+
+    primary: '$blue-900',
   },
 });

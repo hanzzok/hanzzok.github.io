@@ -53,8 +53,6 @@ export const {
         | `${typeof Colors[number]}-${ColorRanges}00-a${typeof Alphas[number]}0`,
         string
       >),
-
-      fg: '$gray-900',
     },
     fonts: {
       sansSerif: '"Pretendard Variable", sans-serif',

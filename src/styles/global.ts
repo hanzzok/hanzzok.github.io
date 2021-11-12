@@ -8,7 +8,9 @@ export const applyRoughAnnotationStyles = globalCss({
 
 export const applyGlobalStyles = globalCss({
   body: {
-    backgroundColor: '$bg',
     fontFamily: '$sansSerif',
+
+    backgroundColor: '$bg',
+    color: '$fg',
   },
 });

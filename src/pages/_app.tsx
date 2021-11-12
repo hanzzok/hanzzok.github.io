@@ -32,11 +32,17 @@ function MyApp({ Component, pageProps }: AppProps) {
     setBlobity(
       new Blobity({
         licenseKey: 'RanolP',
+
         font: '"Pretendard Variable", sans-serif',
         fontSize: 16,
         fontColor: '#ffffff',
         fontWeight: 400,
         color: '#666666',
+
+        focusableElementsOffsetX: 5,
+        focusableElementsOffsetY: 5,
+
+        radius: 8,
       })
     );
   }, []);
