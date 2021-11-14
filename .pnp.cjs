@@ -254,6 +254,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "npm:0.11.1"
       ],
       [
+        "@types/lodash",
+        "npm:4.14.176"
+      ],
+      [
         "@types/node",
         "npm:16.11.7"
       ],
@@ -1259,7 +1263,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "libhanzzok",
-        "npm:0.1.3"
+        "npm:0.1.4"
       ],
       [
         "loader-runner",
@@ -2115,13 +2119,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@prefresh/babel-plugin", "npm:0.4.1"],
             ["@stitches/react", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:1.2.5"],
             ["@types/katex", "npm:0.11.1"],
+            ["@types/lodash", "npm:4.14.176"],
             ["@types/node", "npm:16.11.7"],
             ["@types/react", "npm:17.0.34"],
             ["blobity", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:0.1.7"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
             ["katex", "npm:0.15.1"],
-            ["libhanzzok", "npm:0.1.3"],
+            ["libhanzzok", "npm:0.1.4"],
+            ["lodash", "npm:4.17.21"],
             ["monaco-editor", "npm:0.30.1"],
             ["next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
             ["next-plugin-preact", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:3.0.6"],
@@ -2915,6 +2921,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-katex-npm-0.11.1-00a0d8409c-1e51988b4b.zip/node_modules/@types/katex/",
           "packageDependencies": [
             ["@types/katex", "npm:0.11.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/lodash", [
+        ["npm:4.14.176", {
+          "packageLocation": "./.yarn/cache/@types-lodash-npm-4.14.176-34dca4acb8-9e949704df.zip/node_modules/@types/lodash/",
+          "packageDependencies": [
+            ["@types/lodash", "npm:4.14.176"]
           ],
           "linkType": "HARD",
         }]
@@ -5410,13 +5425,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@prefresh/babel-plugin", "npm:0.4.1"],
             ["@stitches/react", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:1.2.5"],
             ["@types/katex", "npm:0.11.1"],
+            ["@types/lodash", "npm:4.14.176"],
             ["@types/node", "npm:16.11.7"],
             ["@types/react", "npm:17.0.34"],
             ["blobity", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:0.1.7"],
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
             ["katex", "npm:0.15.1"],
-            ["libhanzzok", "npm:0.1.3"],
+            ["libhanzzok", "npm:0.1.4"],
+            ["lodash", "npm:4.17.21"],
             ["monaco-editor", "npm:0.30.1"],
             ["next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
             ["next-plugin-preact", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:3.0.6"],
@@ -6153,10 +6170,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["libhanzzok", [
-        ["npm:0.1.3", {
-          "packageLocation": "./.yarn/cache/libhanzzok-npm-0.1.3-3fe609c633-708a350f48.zip/node_modules/libhanzzok/",
+        ["npm:0.1.4", {
+          "packageLocation": "./.yarn/cache/libhanzzok-npm-0.1.4-144487bcfa-981d67fd29.zip/node_modules/libhanzzok/",
           "packageDependencies": [
-            ["libhanzzok", "npm:0.1.3"]
+            ["libhanzzok", "npm:0.1.4"]
           ],
           "linkType": "HARD",
         }]

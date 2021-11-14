@@ -13,6 +13,7 @@ import Head from 'next/head';
 import { useRerender } from '../lib/hooks/use-rerender';
 import { getHighlighter, Highlighter, Lang, setCDN } from 'shiki';
 import 'katex/dist/katex.min.css';
+import { debounce } from 'lodash';
 // Because of unstable resolution of yarn 2 pnp
 const katex = require('katex');
 
@@ -423,27 +424,31 @@ const Playground: NextPage = () => {
     rerender();
   }
 
-  const acceptSource = useCallback((source: string) => {
-    const libhanzzok = libhanzzokRef.current;
-    const compiler = compilerRef.current;
-    if (libhanzzok && compiler) {
-      const tokenized = libhanzzok.w_tokenize(source);
-      const parsed = libhanzzok.w_parse_root(tokenized, compiler);
-      const renderedNodes = libhanzzok.w_compile_html_nodes(parsed, compiler);
-      const newResult = [];
-      let current: string | undefined;
-      do {
-        current = renderedNodes.next();
-        if (current) {
-          newResult.push(current);
-        }
-      } while (current !== undefined);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const acceptSource = useCallback(
+    debounce((source: string) => {
+      const libhanzzok = libhanzzokRef.current;
+      const compiler = compilerRef.current;
+      if (libhanzzok && compiler) {
+        const tokenized = libhanzzok.w_tokenize(source);
+        const parsed = libhanzzok.w_parse_root(tokenized, compiler);
+        const renderedNodes = libhanzzok.w_compile_html_nodes(parsed, compiler);
+        const newResult = [];
+        let current: string | undefined;
+        do {
+          current = renderedNodes.next();
+          if (current) {
+            newResult.push(current);
+          }
+        } while (current !== undefined);
 
-      renderedNodes.free();
+        renderedNodes.free();
 
-      setResult(newResult);
-    }
-  }, []);
+        setResult(newResult);
+      }
+    }, 300),
+    []
+  );
 
   function handleEditorChange(
     value: string | undefined,
