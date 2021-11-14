@@ -1,8 +1,6 @@
 import Editor from '@monaco-editor/react';
-import type { Compiler } from 'libhanzzok';
-import { editor } from 'monaco-editor';
 import { NextPage } from 'next';
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   ColorScheme,
   usePreferredColorScheme,
@@ -14,20 +12,17 @@ import { useRerender } from '../lib/hooks/use-rerender';
 import { getHighlighter, Highlighter, Lang, setCDN } from 'shiki';
 import 'katex/dist/katex.min.css';
 import { debounce } from 'lodash';
+import { editor } from 'monaco-editor';
 // Because of unstable resolution of yarn 2 pnp
 const katex = require('katex');
 
 setCDN('https://unpkg.com/shiki@0.9.12/');
-// setOnigasmWASM('https://unpkg.com/shiki@0.9.12/dist/onigasm.wasm');
 
 const shikiPromise = getHighlighter({
   theme: 'nord',
   // If we leave this array empty, it will be all bundled languages.
   langs: ['js'],
 });
-
-const libhanzzokPromise = import('libhanzzok');
-type libhanzzok = typeof libhanzzokPromise extends Promise<infer U> ? U : never;
 
 const TotalWrap = styled('div', {
   flexDirection: 'row',
@@ -317,8 +312,7 @@ const LoadingOverlay = (): JSX.Element => {
 const Playground: NextPage = () => {
   const colorScheme = usePreferredColorScheme();
 
-  const libhanzzokRef = useRef<libhanzzok>();
-  const compilerRef = useRef<Compiler>();
+  const compilerWorkerRef = useRef<Worker>();
   const monacoRef = useRef<editor.IEditor>();
   const shikiRef = useRef<Highlighter>();
 
@@ -327,7 +321,7 @@ const Playground: NextPage = () => {
   const [result, setResult] = useState(['']);
 
   const isLoading =
-    !compilerRef.current || !monacoRef.current || !shikiRef.current;
+    !compilerWorkerRef.current || !monacoRef.current || !shikiRef.current;
 
   useEffect(() => {
     shikiPromise.then((highlighter) => {
@@ -395,28 +389,14 @@ const Playground: NextPage = () => {
   }, [isLoading, result]);
 
   useEffect(() => {
-    libhanzzokPromise.then((libhanzzok) => {
-      libhanzzokRef.current = libhanzzok;
-      compilerRef.current?.free();
-      compilerRef.current = libhanzzok.Compiler.new()
-        .with(libhanzzok.code_plugin())
-        .with(libhanzzok.emphasize_plugin())
-        .with(libhanzzok.heading_plugin())
-        .with(libhanzzok.icon_plugin())
-        .with(libhanzzok.input_guide_plugin())
-        .with(libhanzzok.link_plugin())
-        .with(libhanzzok.list_plugin())
-        .with(libhanzzok.math_plugin())
-        .with(libhanzzok.quotation_plugin())
-        .with(libhanzzok.youtube_plugin());
-      rerender();
-    });
-  }, [rerender]);
+    const worker = new Worker(
+      new URL('../lib/hanzzok/worker', import.meta.url)
+    );
+    worker.onmessage = (event) => setResult(event.data);
 
-  useEffect(() => {
-    return () => {
-      compilerRef.current?.free();
-    };
+    compilerWorkerRef.current = worker;
+
+    return () => worker.terminate();
   }, []);
 
   function handleEditorMount(editor: editor.IEditor) {
@@ -427,25 +407,7 @@ const Playground: NextPage = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const acceptSource = useCallback(
     debounce((source: string) => {
-      const libhanzzok = libhanzzokRef.current;
-      const compiler = compilerRef.current;
-      if (libhanzzok && compiler) {
-        const tokenized = libhanzzok.w_tokenize(source);
-        const parsed = libhanzzok.w_parse_root(tokenized, compiler);
-        const renderedNodes = libhanzzok.w_compile_html_nodes(parsed, compiler);
-        const newResult = [];
-        let current: string | undefined;
-        do {
-          current = renderedNodes.next();
-          if (current) {
-            newResult.push(current);
-          }
-        } while (current !== undefined);
-
-        renderedNodes.free();
-
-        setResult(newResult);
-      }
+      compilerWorkerRef.current?.postMessage(source);
     }, 300),
     []
   );

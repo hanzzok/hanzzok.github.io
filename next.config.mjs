@@ -17,20 +17,6 @@ const nextConfig = {
     };
     return config;
   },
-  redirects() {
-    return [
-      {
-        source: '/languages/:name',
-        destination: '/api/languages/:name',
-        permanent: true,
-      },
-      {
-        source: '/themes/:name',
-        destination: '/api/themes/:name',
-        permanent: true,
-      },
-    ];
-  },
   reactStrictMode: true,
 };
 

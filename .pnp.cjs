@@ -1263,7 +1263,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ],
       [
         "libhanzzok",
-        "npm:0.1.4"
+        "npm:0.1.5"
       ],
       [
         "loader-runner",
@@ -2126,7 +2126,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
             ["katex", "npm:0.15.1"],
-            ["libhanzzok", "npm:0.1.4"],
+            ["libhanzzok", "npm:0.1.5"],
             ["lodash", "npm:4.17.21"],
             ["monaco-editor", "npm:0.30.1"],
             ["next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
@@ -5432,7 +5432,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint", "npm:7.32.0"],
             ["eslint-config-next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
             ["katex", "npm:0.15.1"],
-            ["libhanzzok", "npm:0.1.4"],
+            ["libhanzzok", "npm:0.1.5"],
             ["lodash", "npm:4.17.21"],
             ["monaco-editor", "npm:0.30.1"],
             ["next", "virtual:fd1e0d480934cf678027d52455cc48149ca811472185e3441607c9b21f94eeb32c5c5dc4580215c8ae84188be00a30fc5326d7f4130a87d1d3f2e1bb25eaa2df#npm:12.0.3"],
@@ -6170,10 +6170,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["libhanzzok", [
-        ["npm:0.1.4", {
-          "packageLocation": "./.yarn/cache/libhanzzok-npm-0.1.4-144487bcfa-981d67fd29.zip/node_modules/libhanzzok/",
+        ["npm:0.1.5", {
+          "packageLocation": "./.yarn/cache/libhanzzok-npm-0.1.5-f7baa9bc88-3fd6de3378.zip/node_modules/libhanzzok/",
           "packageDependencies": [
-            ["libhanzzok", "npm:0.1.4"]
+            ["libhanzzok", "npm:0.1.5"]
           ],
           "linkType": "HARD",
         }]
