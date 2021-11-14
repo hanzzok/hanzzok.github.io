@@ -2,7 +2,6 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import { annotate } from 'rough-notation';
-import { useBlobity } from '../lib/hooks/use-blobity';
 import { useTooltip } from '../lib/hooks/use-tooltip';
 import { styled, theme } from '../stitches.config';
 import Link from 'next/link';

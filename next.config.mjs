@@ -10,15 +10,26 @@ const withBundleAnalyzer = createBundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
-    if (typeof config === 'function') {
-      process.exit(1);
-    }
     config.output.webassemblyModuleFilename = 'static/wasm/[modulehash].wasm';
     config.experiments = {
       ...(config.experiments ?? {}),
       asyncWebAssembly: true,
     };
     return config;
+  },
+  redirects() {
+    return [
+      {
+        source: '/languages/:name',
+        destination: '/api/languages/:name',
+        permanent: true,
+      },
+      {
+        source: '/themes/:name',
+        destination: '/api/themes/:name',
+        permanent: true,
+      },
+    ];
   },
   reactStrictMode: true,
 };

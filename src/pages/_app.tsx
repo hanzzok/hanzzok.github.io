@@ -4,6 +4,7 @@ import Blobity from 'blobity';
 import {
   applyGlobalStyles,
   applyRoughAnnotationStyles,
+  applyShikiStyles,
 } from '../styles/global';
 import {
   ColorScheme,
@@ -11,6 +12,7 @@ import {
 } from '../lib/hooks/use-preferred-color-scheme';
 import { DarkTheme, LightTheme } from '../styles/theme';
 import { BlobityContext } from '../lib/hooks/use-blobity';
+import Head from 'next/head';
 
 function applyTheme(scheme: ColorScheme | null) {
   switch (scheme) {
@@ -50,13 +52,19 @@ function MyApp({ Component, pageProps }: AppProps) {
   const scheme = usePreferredColorScheme();
 
   applyTheme(scheme);
+  applyShikiStyles();
   applyRoughAnnotationStyles();
   applyGlobalStyles();
 
   return (
-    <BlobityContext.Provider value={blobity}>
-      <Component {...pageProps} />
-    </BlobityContext.Provider>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <BlobityContext.Provider value={blobity}>
+        <Component {...pageProps} />
+      </BlobityContext.Provider>
+    </>
   );
 }
 
